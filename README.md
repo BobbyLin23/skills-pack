@@ -53,6 +53,12 @@ To pick up a newer version of this pack, update the dependency (`pnpm update @bo
 | --- | --- | --- |
 | [find-skills](https://github.com/vercel-labs/skills/blob/HEAD/skills/find-skills/SKILL.md) | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. | [vercel-labs/skills](https://github.com/vercel-labs/skills) |
 
+### Design & UI
+
+| Skill | Description | Source |
+| --- | --- | --- |
+| [frontend-design](https://github.com/anthropics/skills/blob/HEAD/skills/frontend-design/SKILL.md) | Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. | [anthropics/skills](https://github.com/anthropics/skills) |
+
 <!-- skills:end -->
 
 ## Maintaining this pack

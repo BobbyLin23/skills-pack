@@ -35,6 +35,12 @@
       "skills": [
         "find-skills"
       ]
+    },
+    {
+      "source": "anthropics/skills",
+      "skills": [
+        "frontend-design"
+      ]
     }
   ],
   "devDependencies": {

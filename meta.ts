@@ -18,4 +18,11 @@ export const sources: Source[] = [
       'find-skills',
     ],
   },
+  {
+    source: 'anthropics/skills',
+    category: 'Design & UI',
+    skills: [
+      'frontend-design',
+    ],
+  },
 ]
