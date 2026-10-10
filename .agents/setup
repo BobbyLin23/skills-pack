@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+log() { echo "==> $*"; }
+started=$SECONDS
+
+SUDO=""
+if [[ "$(id -u)" -ne 0 ]]; then
+  SUDO="sudo"
+fi
+
+# --- Node.js ---------------------------------------------------------------
+# Present in the orb base image; install via apt only when missing.
+if ! command -v node >/dev/null 2>&1; then
+  log "Node.js not found; installing via apt-get"
+  $SUDO apt-get update
+  $SUDO apt-get install -y nodejs npm
+fi
+log "node $(node --version)"
+
+# --- pnpm ------------------------------------------------------------------
+# Pinned by "packageManager": "pnpm@12.0.0" in package.json.
+# Do not use corepack here: the corepack bundled with Node 26 (0.20.0) cannot
+# run pnpm 12 — it expects bin/pnpm.cjs, but pnpm 12 ships bin/pnpm.mjs.
+pinned_pnpm="12.0.0"
+if [[ "$(pnpm --version 2>/dev/null || true)" != "$pinned_pnpm" ]]; then
+  log "Installing pnpm@$pinned_pnpm globally"
+  npm install -g "pnpm@$pinned_pnpm"
+fi
+log "pnpm $(pnpm --version)"
+
+# --- Dependencies ----------------------------------------------------------
+log "Installing dependencies (pnpm install --frozen-lockfile)"
+pnpm install --frozen-lockfile
+
+log "Setup finished in $((SECONDS - started))s"
