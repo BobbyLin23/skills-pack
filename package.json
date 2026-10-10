@@ -1,0 +1,48 @@
+{
+  "name": "@bobbylin23/skills",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@12.0.0",
+  "description": "bobbylin23's curated agent skills, one install away",
+  "license": "MIT",
+  "homepage": "https://github.com/bobbylin23/skills-pack#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobbylin23/skills-pack.git"
+  },
+  "bugs": "https://github.com/bobbylin23/skills-pack/issues",
+  "keywords": [
+    "agent",
+    "skills",
+    "skills-npm"
+  ],
+  "files": [
+    "skills"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "gen": "tsx scripts/gen.ts",
+    "lint": "pnpm run gen --check",
+    "release": "bumpp",
+    "test": "tsx scripts/test.ts",
+    "typecheck": "tsc"
+  },
+  "skills": [
+    {
+      "source": "vercel-labs/skills",
+      "skills": [
+        "find-skills"
+      ]
+    }
+  ],
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "bumpp": "^12.3.0",
+    "skills-npm": "^4.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "yaml": "^2.9.1"
+  }
+}
